@@ -1,31 +1,40 @@
-
-# * Built-in functions
-
-# ? Forma sem built-in para somar notas e fazer a média
-notas = {'1° trimestre': 8.5, '2° trimestre': 9.5, '3° trimestre': 7}
-print(notas)
-
-soma = 0
-contador = 0
-
-for nota in notas.values():
-    soma += nota
-    contador += 1
+def media():
+    calculo = (10 + 9 + 8) / 3
+    print(calculo)
     
-print(soma)
+media()
 
-media = soma / contador
-print(media)
+def media2(nota1, nota2, nota3):
+    calculo = (nota1 + nota2 + nota3) / 3
+    print(calculo)
+    
+media2(1, 2, 3)
 
-# ? Forma com built-in para somar notas e fazer a média
-soma2 = sum(notas.values())
-print(soma2)
+# * exercício 1 
 
-media = soma2 / len(notas)
-print(media)
+notas = [8.5, 9.0 , 6.0, 10.0]
 
-# ! O help também é uma bult-in function, ele te auxilia a descobrir informações de outras built-in functions
-help(round)
+def media_notas(lista):
+    calculo = sum(lista) / len(lista)
+    return calculo
 
-media_arredondada = round(media, 1)
-print(media_arredondada)
+resultado = media_notas(notas)
+print(resultado)
+
+# * exercício 2
+
+notas2 = [8.5, 9.0 , 6.0, 10.0]
+
+def boletim(lista):
+    media = sum(lista) / len(lista)
+    if media >= 7:
+        situacao = "Aprovado"
+    elif media >= 3:
+        situacao = "Prova final"
+    else:
+        situacao = "Reprovado"
+    
+    return (media, situacao)
+
+media_aluno, situacao_aluno = boletim(notas2)
+print(f"O estudante com a média {media_aluno} está {situacao_aluno}")
